@@ -20,7 +20,19 @@ export default class ItemList extends Component {
           peopleList
         });
       });
-  };
+  }
+
+  renderItem(arr) {
+    return arr.map( ( { id, name } ) => {
+      return (
+        <li className="list-group-item"
+            key = { id }
+            onClick = { () => this.props.onItemSelected(id)}>
+        { name }
+      </li>
+      )
+    });
+  }
 
   render() {
 
@@ -30,17 +42,11 @@ export default class ItemList extends Component {
       return <Spinner/>
     }
 
+    const items = this.renderItem(peopleList);
+
     return (
       <ul className="item-list list-group">
-        <li className="list-group-item">
-          Luke Skywalker
-        </li>
-        <li className="list-group-item">
-          Darth Vader
-        </li>
-        <li className="list-group-item">
-          R2-D2
-        </li>
+        { items }
       </ul>
     );
   }
