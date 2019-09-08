@@ -29,7 +29,6 @@ export default class PersonDetails extends Component {
     if (!personId) {
       return;
     }
-
     this.swapiService.getPerson(personId).then(this.onPersonLoaded);
   }
 
@@ -60,8 +59,8 @@ export default class PersonDetails extends Component {
   }
 }
 
-const PersonView = ({ person }) => {
-  const { id, name, gender, birthYear, eyeColor } = person;
+const PersonView = ( { person } ) => {
+  const { id, name, gender, birth_year, eye_color } = person;
 
   return (
     <React.Fragment>
@@ -79,11 +78,11 @@ const PersonView = ({ person }) => {
           </li>
           <li className="list-group-item">
             <span className="term">Birth Year</span>
-            <span>{birthYear}</span>
+            <span>{birth_year}</span>
           </li>
           <li className="list-group-item">
             <span className="term">Eye Color</span>
-            <span>{eyeColor}</span>
+            <span>{eye_color}</span>
           </li>
         </ul>
         <ErrorButton />
