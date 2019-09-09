@@ -33,16 +33,18 @@ export default class App extends Component {
       <RandomPlanet/> :
       null;
 
-    const { getPerson, getStarship } = this.swapiService
+    const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService
 
     const personDetails = (
       <ItemDetails itemId = {11}
-                  getData = { getPerson } />
+                  getData = { getPerson }
+                  getImageUrl = { getPersonImage } />
     )
 
     const starshipDetails = (
       <ItemDetails itemId = {5}
-                  getData = { getStarship } />
+                  getData = { getStarship }
+                  getImageUrl = { getStarshipImage } />
     )
 
     return (
