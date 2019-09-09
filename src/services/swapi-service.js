@@ -59,7 +59,6 @@ export default class SwapiService {
 
   _transformStarship = (starship) => {
     return {
-      id: this._extractId(starship),
       name: starship.name,
       model: starship.model,
       manufacturer: starship.manufacturer,
