@@ -8,8 +8,17 @@ import ErrorBoundry from "../error-boundry";
 import Row from '../row'
 import ItemDetails, {Record} from '../item-details/item-details';
 import SwapiService from '../../services/swapi-service'
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+  PersonList,
+  PlanetList,
+  StarshipList
+} from '../sw-components'
 
 import './app.css';
+import ItemList from '../item-list/item-list';
 
 export default class App extends Component {
 
@@ -33,13 +42,12 @@ export default class App extends Component {
       <RandomPlanet/> :
       null;
 
-    const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService
+    const { getPerson, getStarship, getPersonImage, getStarshipImage, getAllPeople, getAllPlanets } = this.swapiService
 
     const personDetails = (
       <ItemDetails itemId = {11}
                   getData = { getPerson }
                   getImageUrl = { getPersonImage } >
-
         <Record field="gender" label="Gender" />
         <Record field="eyeColor" label="Eye Color" />
       </ItemDetails>
@@ -70,11 +78,20 @@ export default class App extends Component {
             <ErrorButton />
           </div>
 
-          <PeoplePage /> */}
+          <PeoplePage />
 
           <Row 
               left = { personDetails }
-              right = { starshipDetails } />
+              right = { starshipDetails } /> */}
+          <PersonList >
+              { ({ name }) => <span>{name}</span> }
+          </PersonList>
+          <PlanetList >
+              { ({ name }) => <span>{name}</span> }
+          </PlanetList>
+          <StarshipList >
+              { ({ name }) => <span>{name}</span> }
+          </StarshipList>
         </div>
       </ErrorBoundry>
     );
