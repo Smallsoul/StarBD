@@ -5,7 +5,7 @@ import {
   } from '../sw-components';
   import Row from '../row'
 
-export default class PlanetPage extends Component {
+export default class PlanetsPage extends Component {
 
     state ={
         selectedItem: null
